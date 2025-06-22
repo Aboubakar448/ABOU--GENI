@@ -116,6 +116,9 @@ backend:
       - working: true
         agent: "main"
         comment: "Système d'authentification complet avec JWT, register/login, sécurité bcrypt"
+      - working: true
+        agent: "testing"
+        comment: "Test d'authentification réussi. Login avec admin/admin123 fonctionne correctement et renvoie un token JWT valide."
 
   - task: "Gestion des véhicules CRUD"
     implemented: true
@@ -128,6 +131,9 @@ backend:
       - working: true
         agent: "main"
         comment: "CRUD complet pour véhicules (camion, bus, mini_bus, camionnette) avec proprietaire"
+      - working: true
+        agent: "testing"
+        comment: "Tests CRUD véhicules réussis. Création, lecture, mise à jour et suppression fonctionnent correctement."
 
   - task: "Gestion des documents avec dates expiration"
     implemented: true
@@ -140,6 +146,9 @@ backend:
       - working: true
         agent: "main"
         comment: "Documents avec upload base64, dates expiration, types multiples"
+      - working: true
+        agent: "testing"
+        comment: "Tests CRUD documents réussis. Création, lecture, mise à jour et suppression fonctionnent correctement. Les dates d'expiration sont bien gérées."
 
   - task: "Système d'alertes automatiques"
     implemented: true
@@ -152,6 +161,9 @@ backend:
       - working: true
         agent: "main"
         comment: "Alertes automatiques 30/15/7 jours avant expiration des documents"
+      - working: true
+        agent: "testing"
+        comment: "Système d'alertes automatiques fonctionnel. Les alertes sont correctement générées à la création d'un document (30, 15 et 7 jours avant expiration). La fonctionnalité de masquage d'alerte fonctionne également."
 
   - task: "API de recherche avancée"
     implemented: true
@@ -164,6 +176,9 @@ backend:
       - working: true
         agent: "main"
         comment: "Recherche par véhicule, propriétaire, documents avec regex"
+      - working: true
+        agent: "testing"
+        comment: "API de recherche fonctionnelle. La recherche par marque 'Renault' renvoie correctement les véhicules correspondants."
 
   - task: "API de statistiques"
     implemented: true
@@ -176,6 +191,9 @@ backend:
       - working: true
         agent: "main"
         comment: "Statistiques dashboard avec compteurs véhicules, documents, alertes"
+      - working: true
+        agent: "testing"
+        comment: "API de statistiques fonctionnelle. Les compteurs de véhicules, documents et alertes sont correctement calculés et renvoyés."
 
   - task: "Setup utilisateur admin par défaut"
     implemented: true
@@ -188,6 +206,9 @@ backend:
       - working: true
         agent: "main"
         comment: "Utilisateur admin créé : admin/admin123"
+      - working: true
+        agent: "testing"
+        comment: "Endpoint /api/setup fonctionnel. L'utilisateur admin est correctement créé avec les identifiants admin/admin123."
 
 frontend:
   - task: "Interface de connexion ABOU GENI"
@@ -253,7 +274,7 @@ frontend:
 metadata:
   created_by: "main_agent"
   version: "2.0"
-  test_sequence: 1
+  test_sequence: 2
   run_ui: false
 
 test_plan:
@@ -268,3 +289,5 @@ test_plan:
 agent_communication:
   - agent: "main"
     message: "Application ABOU GENI v2.0 créée avec succès ! Backend complet avec auth JWT, gestion véhicules/documents, alertes automatiques. Frontend avec interface moderne, dashboard statistiques. Utilisateur admin créé. Prêt pour testing backend."
+  - agent: "testing"
+    message: "Tests backend complets effectués avec succès. Tous les endpoints API fonctionnent correctement : authentification JWT, CRUD véhicules, CRUD documents, alertes automatiques, statistiques et recherche. Les tests ont vérifié la protection des endpoints, la création d'utilisateur admin, et la génération d'alertes. Aucun problème majeur détecté."
