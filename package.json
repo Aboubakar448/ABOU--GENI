@@ -1,0 +1,19 @@
+{
+  "name": "abou-geni",
+  "version": "2.0.0",
+  "description": "ABOU GENI - Gestionnaire de Documents de Véhicules",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd frontend && npm start",
+    "dev": "cd frontend && npm run start"
+  },
+  "keywords": [
+    "vehicles",
+    "documents",
+    "management",
+    "abou-geni"
+  ],
+  "author": "Aboubakar448",
+  "license": "MIT"
+}
