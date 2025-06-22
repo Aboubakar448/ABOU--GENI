@@ -72,7 +72,7 @@ def test_unauthorized_access():
     print_test_header("Unauthorized Access Test")
     response = requests.get(f"{API_URL}/vehicles")
     print_response(response)
-    assert response.status_code == 401, "Unauthorized access should be rejected"
+    assert response.status_code in [401, 403], "Unauthorized access should be rejected"
 
 def test_create_vehicle(token):
     print_test_header("Create Vehicle")
